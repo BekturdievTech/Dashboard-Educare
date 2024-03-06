@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 20px;
+  color: #16151c;
+}
+.container_main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+.container {
+  width: calc(100vw - 310px);
+  margin-left: 300px;
+}
+.active-link {
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 20px;
+  background-color: rgba(113, 82, 243, 0.05);
+  font-weight: 600;
+  color: #7152f3;
+  position: relative;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.active-link::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 50px;
+  background-color: #7152F3;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+/* search Input style */
+.searchInput {
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+  padding-left: 50px;
+  border-radius: 10px;
+  font-weight: 300;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s ease;
+}
+.searchInput::placeholder {
+  font-size: 18px;
+}
+.searchInput:focus,
+.searchInput:hover {
+  outline: none;
+  border-color: rgb(113, 82, 243, 0.5);
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgb(113 82 243 / 10%);
+}
+
+/* checkbox style */
+.custom-checkbox[type="checkbox"] {
+  position: relative;
+  min-width: 24px;
+  height: 24px;
+  border: 2px solid rgba(162, 161, 168, 0.2);
+  border-radius: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+  transition: background 175ms cubic-bezier(0.1, 0.1, 0.25, 1);
+}
+.custom-checkbox[type="checkbox"]::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 1px;
+  left: 6.5px;
+  width: 8px;
+  height: 14px;
+  border-style: solid;
+  border-color: #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+.custom-checkbox[type="checkbox"]:checked {
+  color: #fff;
+  border-color: #7152f3;
+  background: #7152f3;
+}
+.custom-checkbox[type="checkbox"]:checked::before {
+  opacity: 1;
+}
+
+/* card table */
+.card-table {
+  display: grid;
+  margin-top: 20px;
+  text-align: start;
+  grid-template-columns: 380px 130px 80px 130px 80px 90px;
+  align-items: center;
+  gap: 16px;
+}
+.card-table > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.active-card,
+.inactive-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 28px;
+  border-radius: 4px;
+}
+.active-card {
+  background: rgb(63, 194, 138, 0.1);
+  color: #3fc28a;
+}
+.inactive-card {
+  background: rgb(244, 91, 145, 0.1);
+  color: #f45b69;
+}
+
+/* date input */
+input[type="date"]::-webkit-calendar-picker-indicator{
+  width: 78%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.validate-form{
+  border: 1px solid #f45b69 !important;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  /* Set background color and box-shadow to override autofill styles */
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  background-color: white !important; /* Change the color to match your background color */
+}
+
+/* froala validation */
+.FroalaError .fr-box > div{ 
+  border-color: #f45b69 !important;
+}
