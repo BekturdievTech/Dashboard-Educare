@@ -1,18 +1,21 @@
+
 import Header from "../../../components/header/Header";
 import CreateForm from "../../../components/CreateForm/CreateForm";
 import Link from "next/link";
 import { IoChevronForwardSharp } from "react-icons/io5"
 
+
 export default function page() {
+    
   return (
     <section className="container">
-        <Header>
+      <Header>
         <div>
-          <h2 className="text-[20px] font-semibold">Add New Almashinuv</h2>
+          <h2 className="text-[20px] font-semibold">Add New Grant</h2>
           <div className="flex items-center justify-start gap-1 text-[14px]">
-            <Link href={'/almashinuv'}>All Almashinuvlar</Link>
+            <Link href={"/grant"}>All Grantlar</Link>
             <IoChevronForwardSharp />
-            <Link href={''}>Add New Almashinuv</Link>
+            <Link href={""}>Add New Grant</Link>
           </div>
         </div>
       </Header>
@@ -20,7 +23,7 @@ export default function page() {
         className="w-full p-5 rounded-[10px]"
         style={{ border: "1px solid rgba(162, 161, 168, 0.2)" }}
       >
-        <CreateForm category="almashinuv" />
+       <CreateForm category="grant"/>
       </div>
     </section>
   );

@@ -6,6 +6,7 @@ import {
   RiBriefcase3Fill,
   RiBubbleChartFill,
   RiHonourFill,
+  RiMegaphoneFill 
 } from "react-icons/ri";
 import { FaPeopleGroup } from "react-icons/fa6";
 import Link from "next/link";
@@ -45,6 +46,11 @@ export default function Sidebar() {
       icon: <MdEmojiEvents size={28} />,
     },
     {
+      title: "Blog",
+      link: "/blog",
+      icon: <RiMegaphoneFill  size={28} />,
+    },
+    {
       title: "Settings",
       link: "/settings",
       icon: <MdSettings size={28} />,
@@ -53,7 +59,7 @@ export default function Sidebar() {
 
   return (
     <nav
-      className=" p-[30px] w-[280px] rounded-[20px] fixed"
+      className=" px-[30px] py-5 w-[280px] rounded-[20px] fixed"
       style={{ background: "rgba(162, 161, 168, 0.05)" }}
     >
       <div className="flex justify-start items-center text-[26px] gap-2 font-medium">

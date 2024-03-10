@@ -11,7 +11,7 @@ export default function RichText({error}) {
   return (
     <div>
       <div className="font-semibold mb-1">RichText</div>
-      <div id="etidor" className={`${error?.RichText && "FroalaError"} max-w-[975px]`}>
+      <div id="etidor" className={`${error?.RichText && "FroalaError"} max-w-[975px] froalaContainer`}>
         <FroalaEditor
           model={richtext}
           onModelChange={(e) => SetRichtext(e)}

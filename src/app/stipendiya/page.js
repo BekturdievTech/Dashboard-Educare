@@ -9,15 +9,15 @@ export default function page() {
     <main className="container">
       <Header>
         <div>
-          <h2 className="text-[20px] font-semibold">All Almashinuvlar</h2>
-          <span className="text-[14px] text-[#A2A1A8]">All Almashinuvlar Posts</span>
+          <h2 className="text-[20px] font-semibold">All Stipendiyalar</h2>
+          <span className="text-[14px] text-[#A2A1A8]">All Stipendiyalar Posts</span>
         </div>
       </Header>
       <div
         className="w-full rounded-[10px] p-5"
         style={{ border: "1px solid rgba(162, 161, 168, 0.2)" }}
       >
-        <FilterBar addLink={'almashinuv/create'}/>
+        <FilterBar addLink={'stipendiya/create'}/>
         <div className="w-full text-[#A2A1A8] card-table">
           <span>Title</span>
           <span>Level</span>
@@ -26,7 +26,7 @@ export default function page() {
           <span>Status</span>
           <span>Action</span>
         </div>
-        <Suspense fallback={<LoadingSkelet />}>
+        <Suspense fallback={<LoadingSkelet/>}>
           <Posts />
         </Suspense>
       </div>

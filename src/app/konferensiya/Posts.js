@@ -1,4 +1,3 @@
-import FetchPosts from "@/libs/import/fetch.posts";
 import Card from "../../components/cardList/Card";
 
 const data = [
@@ -25,10 +24,10 @@ const data = [
 ];
 
 export default async function Posts() {
-  const post = await FetchPosts();
+
   return (
     <div>
-      {post && post.map((post, index) => (
+      {data && data.map((post, index) => (
         <Card post={post} key={index} />
       ))}
     </div>

@@ -7,7 +7,7 @@ export async function createContent({
   title,
   description,
   muddati,
-  joylashuv,
+  joylashuv,  
   soha,
   level,
   mukofot,

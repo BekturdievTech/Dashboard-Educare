@@ -27,7 +27,7 @@ export default function SohaSelect() {
       borderRadius: "10px",
       boxShadow: "none",
       minHeight: "56px",
-      borderColor: "rgba(162, 161, 168, 0.2)",
+      borderColor: "rgba(162, 161, 168, 0.2)",      
     }),
   };
 

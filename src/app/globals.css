@@ -113,7 +113,7 @@ body {
   display: grid;
   margin-top: 20px;
   text-align: start;
-  grid-template-columns: 380px 130px 80px 130px 80px 90px;
+  grid-template-columns: 380px 120px 100px 120px 80px 90px;
   align-items: center;
   gap: 16px;
 }
@@ -162,4 +162,8 @@ select:-webkit-autofill {
 /* froala validation */
 .FroalaError .fr-box > div{ 
   border-color: #f45b69 !important;
+}
+
+.froalaContainer .fr-box > div{  
+  z-index: 0;
 }
