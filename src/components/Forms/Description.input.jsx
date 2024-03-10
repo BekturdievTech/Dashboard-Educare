@@ -1,7 +1,7 @@
 'use client'
 import { RiErrorWarningFill } from "react-icons/ri";
 
-export default function Description({error}) {
+export default function Description({error, defValue}) {
   return (
     <div className="w-full relative mb-4">
       <label htmlFor="title" className="font-semibold">
@@ -13,6 +13,7 @@ export default function Description({error}) {
         className={`mt-1 outline-none rounded-[10px] w-full p-4 ${
           error?.description && "validate-form"
         }`}
+        defaultValue={defValue && defValue}
         placeholder="Add description"
         required
         name="description"

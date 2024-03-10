@@ -32,3 +32,39 @@ export async function createContent({
     console.log(error);
   }
 }
+
+
+
+export async function updateContent({
+  postId,
+  category,
+  title,
+  description,
+  muddati,
+  joylashuv,  
+  soha,
+  level,
+  mukofot,
+  ImageUrl,
+  RichText,
+}) {
+  try {
+    connectToDb();
+    await Contents.findOneAndUpdate({id : postId},{
+      category: category,
+      title: title,
+      description: description,
+      muddat: muddati,
+      location: joylashuv,
+      soha: soha,
+      levels: level,
+      mukofot: mukofot,
+      featuredImageLink: ImageUrl,
+      richtext: RichText,
+    });
+  } catch (error) {
+    throw new Error(`Failed to create/update user: ${error.message}`);
+  }
+}
+
+

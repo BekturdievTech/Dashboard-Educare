@@ -11,7 +11,7 @@ const levels = [
   { value: "Boshqalar", label: "Boshqalar" },
 ];
 
-export default function LevelSelect() {
+export default function LevelSelect({defValue}) {
   const [level, setLevel] = useState('');
 
   const handleSelectBox = (event) => {
@@ -31,6 +31,17 @@ export default function LevelSelect() {
     }),
   };
 
+  const SelectedValues = [];
+
+// Iterate through levels array and check if label exists in defValue
+levels.forEach((level) => {
+  if (defValue.includes(level.label)) {
+    SelectedValues.push(level);
+  }
+});
+
+
+
   return (
     <div className="mt-1 w-[475px]">
       <div className="font-semibold mb-1">Levels</div>
@@ -43,6 +54,7 @@ export default function LevelSelect() {
         styles={customStyles}
         placeholder="Study Level"
         required
+        defaultValue={defValue && SelectedValues}
       />
     </div>
   );

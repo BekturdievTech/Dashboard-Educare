@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FiEye, FiTrash2 } from "react-icons/fi";
 import { BiEditAlt } from "react-icons/bi";
+import Link from "next/link";
 
 export default function Card({ post }) {
   const { id, featuredImageLink, title, levels, muddat, mukofot } = post;
@@ -21,9 +22,9 @@ export default function Card({ post }) {
         <button className="">
           <FiEye size={22} />
         </button>
-        <button>
+        <Link href={`almashinuv/${id}`}>
           <BiEditAlt size={22} />
-        </button>
+        </Link>
         <button>
           <FiTrash2 size={22} color="#f45b69"/>
         </button>

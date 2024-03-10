@@ -1,6 +1,6 @@
 import { RiErrorWarningFill } from "react-icons/ri";
 
-export default function LocationInput({ error }) {
+export default function LocationInput({ error, defValue }) {
   return (
     <div className="w-[475px] relative">
       <label htmlFor="title" className="font-semibold">
@@ -9,6 +9,7 @@ export default function LocationInput({ error }) {
       <input
         type="text"
         id="title"
+        defaultValue={defValue && defValue}
         className={`mt-1 outline-none rounded-[10px] w-full p-4 ${
           error?.joylashuv && "validate-form"
         }`}

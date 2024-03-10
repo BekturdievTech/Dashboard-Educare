@@ -5,8 +5,8 @@ import "froala-editor/css/froala_editor.pkgd.min.css";
 import "froala-editor/js/plugins.pkgd.min.js";
 import { RiErrorWarningFill } from "react-icons/ri";
 
-export default function RichText({error}) {
-  const [richtext, SetRichtext] = useState("");
+export default function RichText({error, defValue}) {
+  const [richtext, SetRichtext] = useState(defValue ? defValue : "");
 
   return (
     <div>

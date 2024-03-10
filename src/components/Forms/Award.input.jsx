@@ -1,6 +1,6 @@
 import { RiErrorWarningFill } from "react-icons/ri";
 
-export default function AwardInput({ error }) {
+export default function AwardInput({ error, defValue }) {
   return (
     <div className="w-[475px] relative">
       <label htmlFor="title" className="font-semibold">
@@ -12,6 +12,7 @@ export default function AwardInput({ error }) {
         className={`mt-1 outline-none rounded-[10px] w-full p-4 ${
           error?.mukofot && "validate-form"
         }`}
+        defaultValue={defValue && defValue}
         placeholder="Award"
         required
         name="mukofot"

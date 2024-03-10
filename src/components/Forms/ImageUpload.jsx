@@ -3,8 +3,8 @@ import Image from "next/image";
 import { UploadDropzone } from "@uploadthing/react";
 import { RiErrorWarningFill } from "react-icons/ri";
 
-export default function ImageUpload({ error }) {
-  const [imageUrl, setImageUrl] = useState("");
+export default function ImageUpload({ error, defValue }) {
+  const [imageUrl, setImageUrl] = useState(defValue ? defValue : "");
 
   return (
     <div>
