@@ -2,7 +2,6 @@
 import { useFormState, useFormStatus } from "react-dom";
 import SubmitInfo from "../../libs/actions";
 import TitleInput from "../Forms/Title.input";
-import Description from "../Forms/Description.input";
 import LevelSelect from "../Forms/Level.select";
 import DateInput from "../Forms/Date";
 import SohaSelect from "../Forms/Soha.select";
@@ -10,6 +9,7 @@ import AwardInput from "../Forms/Award.input";
 import LocationInput from "../Forms/Location.input";
 import ImageUpload from "../Forms/ImageUpload";
 import RichText from "../Forms/RichText";
+import FormResult from "../Forms/Form.Modal";
 
 export function SubmitButton() {
   const { pending } = useFormStatus();
@@ -26,12 +26,11 @@ export function SubmitButton() {
 
 export default function CreateForm({ category }) {
   const [state, formAction] = useFormState(SubmitInfo, {
-    message: "",
+    message: undefined,
     errors: '',
     fieldValues: {
       category: "",
-      title: "",
-      description: "",
+      title: "",      
       level: "",
       muddati: "",
       soha: "",
@@ -41,6 +40,7 @@ export default function CreateForm({ category }) {
       RichText: "",
     },
   });
+  console.log(category);
 
   return (
     <>
@@ -48,12 +48,9 @@ export default function CreateForm({ category }) {
         action={formAction}
         className="flex justify-start items-start flex-col"
       >
-        {state.message === "Success" && (
-          <p className=" text-green-500">Form submitted successfully</p>
-        )}
+        {state.message && <FormResult state={state} category={category} />}        
         <ImageUpload error={state.errors} />
         <TitleInput error={state.errors} />
-        <Description error={state.errors} />
         <input type="hidden" value={category} name="category" />
         <div className="flex w-full justify-between gap-y-5 items-center flex-wrap">
           <LevelSelect />
@@ -65,7 +62,7 @@ export default function CreateForm({ category }) {
         </div>
         <SubmitButton />
       </form>
-      {state?.status && <div className="text-xl mt-2">{state?.message}</div>}
+      
     </>
   );
 }

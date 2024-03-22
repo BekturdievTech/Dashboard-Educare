@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 
 const contentSchema = new mongoose.Schema({
   category: String,
-  title: String,
-  description: String,
+  title: String,  
   muddat: String,
   location: String,
   soha: {

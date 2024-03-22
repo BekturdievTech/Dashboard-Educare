@@ -12,7 +12,7 @@ export default function page() {
           <h2 className="text-[20px] font-semibold">All Amaliyotlar</h2>
           <span className="text-[14px] text-[#A2A1A8]">All Amaliyotlar Posts</span>
         </div>
-      </Header>
+      </Header>      
       <div
         className="w-full rounded-[10px] p-5"
         style={{ border: "1px solid rgba(162, 161, 168, 0.2)" }}

@@ -4,8 +4,7 @@ import Contents from "../models/Content.model";
 
 export async function createContent({
   category,
-  title,
-  description,
+  title,  
   muddati,
   joylashuv,  
   soha,
@@ -18,8 +17,7 @@ export async function createContent({
   try {
     Contents.create({
       category: category,
-      title: title,
-      description: description,
+      title: title,      
       muddat: muddati,
       location: joylashuv,
       soha: soha,
@@ -28,18 +26,16 @@ export async function createContent({
       featuredImageLink: ImageUrl,
       richtext: RichText,
     });
+    
   } catch (error) {
     console.log(error);
   }
 }
 
-
-
 export async function updateContent({
   postId,
   category,
-  title,
-  description,
+  title,  
   muddati,
   joylashuv,  
   soha,
@@ -52,8 +48,7 @@ export async function updateContent({
     connectToDb();
     await Contents.findOneAndUpdate({id : postId},{
       category: category,
-      title: title,
-      description: description,
+      title: title,      
       muddat: muddati,
       location: joylashuv,
       soha: soha,
@@ -63,7 +58,7 @@ export async function updateContent({
       richtext: RichText,
     });
   } catch (error) {
-    throw new Error(`Failed to create/update user: ${error.message}`);
+    throw new Error(`Failed to create/update post: ${error.message}`);
   }
 }
 

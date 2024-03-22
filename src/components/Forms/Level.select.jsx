@@ -11,13 +11,21 @@ const levels = [
   { value: "Boshqalar", label: "Boshqalar" },
 ];
 
-export default function LevelSelect({defValue}) {
-  const [level, setLevel] = useState('');
+export default function LevelSelect({ defValue }) {
+  const [level, setLevel] = useState("");
+  const SelectedValues = [];
+  // Iterate through levels array and check if label exists in defValue
+  levels.forEach((level) => {
+    if (defValue && defValue.includes(level.label)) {
+      SelectedValues.push(level);
+    }
+  });
+  let defValueArray = defValue &&  defValue.toString().split(",");
+  let selectedLevels = level.length > 0 ? level.map((item) => item.value) : defValueArray;
 
   const handleSelectBox = (event) => {
     setLevel(event);
   };
-  let selectedLevels = level.length && level.map(item => item.value);
 
   const customStyles = {
     control: (defaultStyles) => ({
@@ -31,24 +39,13 @@ export default function LevelSelect({defValue}) {
     }),
   };
 
-  const SelectedValues = [];
-
-// Iterate through levels array and check if label exists in defValue
-levels.forEach((level) => {
-  if (defValue.includes(level.label)) {
-    SelectedValues.push(level);
-  }
-});
-
-
-
   return (
     <div className="mt-1 w-[475px]">
       <div className="font-semibold mb-1">Levels</div>
-      <input type="hidden" name="level" value={selectedLevels}/>
-      <Select                
+      <input type="hidden" name="level" value={selectedLevels} />
+      <Select
         isMulti
-        instanceId={useId()}       
+        instanceId={useId()}
         options={levels}
         onChange={handleSelectBox}
         styles={customStyles}

@@ -1,10 +1,13 @@
 import Image from "next/image";
-import { FiEye, FiTrash2 } from "react-icons/fi";
+import { FiEye } from "react-icons/fi";
 import { BiEditAlt } from "react-icons/bi";
 import Link from "next/link";
+import DeleteModal from "../DeletePost/deleteModal";
 
 export default function Card({ post }) {
-  const { id, featuredImageLink, title, levels, muddat, mukofot } = post;
+  const { _id, featuredImageLink, title, levels, muddat, mukofot, category } = post;
+  let id = _id.toString();  
+  
   const status = "active";
   return (
     <div className="card-table text-[14px] border-t pt-[10px]" style={{borderColor: "rgb(162, 161, 168, 0.1)"}}>
@@ -22,12 +25,10 @@ export default function Card({ post }) {
         <button className="">
           <FiEye size={22} />
         </button>
-        <Link href={`almashinuv/${id}`}>
+        <Link href={`${category}/${id}`}>
           <BiEditAlt size={22} />
         </Link>
-        <button>
-          <FiTrash2 size={22} color="#f45b69"/>
-        </button>
+        <DeleteModal id={id}/>
       </div>
     </div>
   );

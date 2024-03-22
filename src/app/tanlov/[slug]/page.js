@@ -10,11 +10,11 @@ export default async function page({ params: { slug } }) {
     <main className="container">
       <Header>
         <div>
-          <h2 className="text-[20px] font-semibold">Edit Almashinuv Post</h2>
+          <h2 className="text-[20px] font-semibold">Edit Tanlov Post</h2>
           <div className="flex items-center justify-start gap-1 text-[14px]">
-            <Link href={"/almashinuv"}>All Almashinuvlar</Link>
+            <Link href={"/tanlov"}>All Tanlovlar</Link>
             <IoChevronForwardSharp />
-            <Link href={""}>Edit Almashinuv Post</Link>
+            <Link href={""}>Edit Tanlov Post</Link>
           </div>
         </div>
       </Header>

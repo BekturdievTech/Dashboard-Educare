@@ -2,7 +2,6 @@
 import { useFormState, useFormStatus } from "react-dom";
 import { EditPost } from "@/libs/actions";
 import TitleInput from "../Forms/Title.input";
-import Description from "../Forms/Description.input";
 import LevelSelect from "../Forms/Level.select";
 import DateInput from "../Forms/Date";
 import SohaSelect from "../Forms/Soha.select";
@@ -10,6 +9,7 @@ import AwardInput from "../Forms/Award.input";
 import LocationInput from "../Forms/Location.input";
 import ImageUpload from "../Forms/ImageUpload";
 import RichText from "../Forms/RichText";
+import FormResult from "../Forms/Form.Modal";
 
 export function SubmitButton() {
   const { pending } = useFormStatus();
@@ -26,13 +26,12 @@ export function SubmitButton() {
 
 export default function EditForm({ post }) {
   const [state, formAction] = useFormState(EditPost, {
-    message: "",
+    message: undefined,
     errors: "",
     fieldValues: {
       id: "",
       category: "",
-      title: "",
-      description: "",
+      title: "",    
       level: "",
       muddati: "",
       soha: "",
@@ -44,10 +43,9 @@ export default function EditForm({ post }) {
   });
 
   const {
-    id,
+    _id,
     category,
-    title,
-    description,
+    title,    
     muddat,
     location,
     soha,
@@ -63,13 +61,10 @@ export default function EditForm({ post }) {
         action={formAction}
         className="flex justify-start items-start flex-col"
       >
-        {state.message === "Success" && (
-          <p className=" text-green-500">Form Updated successfully</p>
-        )}
-        <input type="hidden" value={id} name="postId" />
+        {state.message && <FormResult state={state} category={category} />}      
+        <input type="hidden" value={_id} name="postId" />
         <ImageUpload error={state.errors} defValue={featuredImageLink} />
-        <TitleInput error={state.errors} defValue={title} />
-        <Description error={state.errors} defValue={description} />
+        <TitleInput error={state.errors} defValue={title} />        
         <input type="hidden" value={category} name="category" />
         <div className="flex w-full justify-between gap-y-5 items-center flex-wrap">
           <LevelSelect defValue={levels} />

@@ -2,9 +2,9 @@
 import Contents from "../models/Content.model"
 import { connectToDb } from "../mongoose"
 
-export default async function FetchPosts() {
+export default async function FetchPosts(category) {
     connectToDb()
-    const posts =  Contents.find({ category: 'almashinuv' })
+    const posts =  Contents.find({ category: category })
     return posts;
 };
 

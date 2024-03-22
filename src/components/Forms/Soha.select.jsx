@@ -3,21 +3,30 @@ import React, { useId, useState } from "react";
 import Select from "react-select";
 
 const levels = [
-  { value: "Maktab", label: "Maktab" },
-  { value: "Bakalavr", label: "Bakalavr" },
-  { value: "Magistr", label: "Magistr" },
-  { value: "Phd (Doktorantura)", label: "Phd (Doktorantura)" },
-  { value: "Postdoktorantura", label: "Postdoktorantura" },
-  { value: "Boshqalar", label: "Boshqalar" },
+  { value: "Amaliy fanlar", label: "Amaliy fanlar" },
+  { value: "Business boshqaruv", label: "Business boshqaruv" },
+  { value: "Kompyuter fanlari", label: "Kompyuter fanlari" },
+  { value: "Muhandislik va texnologiya", label: "Muhandislik va texnologiya" },
+  { value: "Gumanitar fanlar", label: "Gumanitar fanlar" },
+  { value: "Ijtimoiy fanlar", label: "Ijtimoiy fanlar" },
+  { value: "sport", label: "sport" },
 ];
 
 export default function SohaSelect({ defValue }) {
   const [soha, setSoha] = useState("");
+  const SelectedValues = [];
+  // Iterate through levels array and check if label exists in defValue
+  levels.forEach((level) => {
+    if (defValue && defValue.includes(level.label)) {
+      SelectedValues.push(level);
+    }
+  });
+  let defValueArray = defValue &&  defValue.toString().split(",");
+  let selectedSoha = soha.length > 0 ? soha.map((item) => item.value) : defValueArray;
 
   const handleSelectBox = (event) => {
     setSoha(event);
   };
-  let selectedSoha = soha.length && soha.map((item) => item.value);
 
   const customStyles = {
     control: (defaultStyles) => ({
@@ -31,14 +40,8 @@ export default function SohaSelect({ defValue }) {
     }),
   };
 
-  const SelectedValues = [];
 
-  // Iterate through levels array and check if label exists in defValue
-  levels.forEach((level) => {
-    if (defValue.includes(level.label)) {
-      SelectedValues.push(level);
-    }
-  });
+  
 
   return (
     <div className="mt-1 w-[475px]">
