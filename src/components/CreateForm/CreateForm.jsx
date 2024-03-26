@@ -9,7 +9,7 @@ import AwardInput from "../Forms/Award.input";
 import LocationInput from "../Forms/Location.input";
 import ImageUpload from "../Forms/ImageUpload";
 import RichText from "../Forms/RichText";
-import FormResult from "../Forms/Form.Modal";
+import FormResult from "../Forms/FormResult";
 
 export function SubmitButton() {
   const { pending } = useFormStatus();
@@ -40,7 +40,6 @@ export default function CreateForm({ category }) {
       RichText: "",
     },
   });
-  console.log(category);
 
   return (
     <>
@@ -48,7 +47,7 @@ export default function CreateForm({ category }) {
         action={formAction}
         className="flex justify-start items-start flex-col"
       >
-        {state.message && <FormResult state={state} category={category} />}        
+        {state.message && <FormResult state={state} category={category} sword="created"/>}        
         <ImageUpload error={state.errors} />
         <TitleInput error={state.errors} />
         <input type="hidden" value={category} name="category" />

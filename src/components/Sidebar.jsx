@@ -11,10 +11,15 @@ import {
 import { FaPeopleGroup } from "react-icons/fa6";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-//what the hell is going on github. 
+
 export default function Sidebar() {
   const pathname = usePathname();
   const sideData = [
+    {
+      title: "Dashboard",
+      link: "/dashboard",
+      icon: <MdSpaceDashboard size={28} />,
+    },
     {
       title: "Almashinuv",
       link: "/almashinuv",
@@ -67,17 +72,6 @@ export default function Sidebar() {
         HRMS
       </div>
       <ul className="pt-[30px] flex flex-col gap-[10px]">
-        <li
-          className={
-            pathname === "/"
-              ? `active-link`
-              : `h-[50px] flex justify-start items-center pl-5`
-          }
-        >
-          <Link href={"/"} className="flex items-center gap-4">
-            <MdSpaceDashboard size={28} /> Dashboard
-          </Link>
-        </li>
         {sideData.map((item, index) => (
           <li
             className={

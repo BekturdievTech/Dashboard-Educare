@@ -22,6 +22,9 @@ body {
   width: calc(100vw - 310px);
   margin-left: 300px;
 }
+.enter_container{
+  height: calc(100vh - 40px);
+}
 .active-link {
   height: 50px;
   display: flex;
@@ -117,6 +120,15 @@ body {
   align-items: center;
   gap: 16px;
 }
+.blog-card-table{
+  display: grid;
+  margin-top: 20px;
+  text-align: start;
+  grid-template-columns: 690px 110px 100px;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 16px; */
+}
 .card-table > span {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -166,4 +178,47 @@ select:-webkit-autofill {
 
 .froalaContainer .fr-box > div{  
   z-index: 0;
+}
+
+/* Log In Form*/
+
+.form__group {
+  position: relative;
+  max-width: 345px;
+  position: relative;
+  margin-top: 12px;
+  height: 60px;
+}
+
+.form__field {  
+  width: 100%;
+  outline: none;
+  padding: 10px 20px;
+  padding-top: 20px;
+  height: 60px;
+  border: 1px solid rgba(162, 161, 168, 0.5);
+  background-color: transparent;
+  border-radius: 10px;
+  color: #16151C;
+  cursor: pointer;
+}
+
+.form__label {
+  position: absolute;
+  left: 0;
+  padding: 18px 10px; 
+  margin-left: 0.5em;
+  transition: all 0.2s ease-in-out;
+  color: #A2A1A8;
+}
+
+.form__field:focus, .form__field:valid {
+  padding-bottom: 10px;
+  border-color: #7152F3;
+}
+.form__field:focus ~ .form__label, .form__field:valid ~ .form__label {
+  transform: translateY(-25%) scale(.8);
+  margin-left: 5px;
+  padding-left: 5px;
+  color: #7152F3;
 }

@@ -57,7 +57,7 @@ export default function DeleteModal({ id }) {
                 <Dialog.Panel className="w-full max-w-[383px] transform overflow-hidden rounded-2xl bg-white p-5 text-left align-middle shadow-xl transition-all">
                  
                   {state.message === "Success" ? (
-                    <SuccessContent closeModal={closeModal} />
+                    <SuccessContent closeModal={closeModal} sword="deleted"/>
                   ) : (
                     <ActionContent
                       formAction={formAction}

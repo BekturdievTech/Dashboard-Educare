@@ -9,7 +9,7 @@ import AwardInput from "../Forms/Award.input";
 import LocationInput from "../Forms/Location.input";
 import ImageUpload from "../Forms/ImageUpload";
 import RichText from "../Forms/RichText";
-import FormResult from "../Forms/Form.Modal";
+import FormResult from "../Forms/FormResult";
 
 export function SubmitButton() {
   const { pending } = useFormStatus();
@@ -61,7 +61,7 @@ export default function EditForm({ post }) {
         action={formAction}
         className="flex justify-start items-start flex-col"
       >
-        {state.message && <FormResult state={state} category={category} />}      
+        {state.message && <FormResult state={state} category={category} sword="updated"/>}      
         <input type="hidden" value={_id} name="postId" />
         <ImageUpload error={state.errors} defValue={featuredImageLink} />
         <TitleInput error={state.errors} defValue={title} />        

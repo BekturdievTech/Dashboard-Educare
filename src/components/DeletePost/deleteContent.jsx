@@ -1,7 +1,7 @@
 import { FaCheck } from "react-icons/fa6";
 import { IoCloseSharp } from "react-icons/io5";
 
-export function SuccessContent({ closeModal }) {
+export function SuccessContent({ closeModal, sword }) {
   return (
     <div>
       <div className="w-full flex justify-center items-center flex-col gap-3">
@@ -16,7 +16,7 @@ export function SuccessContent({ closeModal }) {
         </div>
         <h3 className=" text-3xl font-medium text-center">Done</h3>
         <p className="text-center text-sm text-[#A2A1A8] font-light">
-          The post has been deleted successfully.
+          The post has been {sword} successfully.
         </p>
       </div>
 
@@ -33,7 +33,7 @@ export function SuccessContent({ closeModal }) {
   );
 }
 
-export function ErrorContent({ closeModal, path }) {
+export function ErrorContent({ closeModal }) {
   return (
     <div>
       <div className="w-full flex justify-center items-center flex-col gap-3">
