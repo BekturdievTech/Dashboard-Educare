@@ -9,19 +9,19 @@ import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 
 export default function Dropdown() {
-  const { data: session } = useSession();
+  const { data: session } = useSession();  
 
   return (
     <div className="w-56 text-right">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button
-            className=" flex h-[50px] justify-start items-center rounded-lg p-[5px] gap-[5px]"
+            className=" flex h-[55px] justify-start items-center rounded-lg p-[5px] gap-[5px]"
             style={{ border: "1px solid rgba(162, 161, 168, 0.2)" }}
           >
-            <div className="w-[35px] h-[40px] relative rounded-lg">
+            <div className="w-[40px] h-[45px] relative rounded-lg">
               <Image
-                src={"/manager.jpg"}
+                src={`/${session?.user?.image}`} // "/manager.jpg"
                 fill
                 objectFit="cover"
                 className="rounded-lg"
@@ -29,7 +29,7 @@ export default function Dropdown() {
             </div>
             <div className="flex justify-start flex-col items-start">
               <h3 className="font-semibold">{session?.user?.name}</h3>
-              <span className="text-[#A2A1A8] text-xs">HR Manager</span>
+              <span className="text-[#A2A1A8] text-xs">{session?.user?.role}</span>
             </div>
             <RxChevronDown size={24} />
           </Menu.Button>

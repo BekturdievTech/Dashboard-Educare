@@ -1,4 +1,3 @@
-
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
@@ -27,7 +26,6 @@ export const authOptions = {
           if (!passwordsMatch) {
             return null;
           }
-
           return admin;
         } catch (error) {
           console.log("Error: ", error);
@@ -35,6 +33,27 @@ export const authOptions = {
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user, session }) {
+      if (user) {
+        return {
+          ...token,
+          role: user.role,
+        };
+      }
+      return token;
+    },
+    async session({ session, token, user }) {      
+      //passing role to the session;
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          role: token.role,
+        },
+      };      
+    },
+  },
   session: {
     strategy: "jwt",
   },
